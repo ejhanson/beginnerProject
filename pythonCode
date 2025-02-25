@@ -1,0 +1,29 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+# Initialize WebDriver
+driver = webdriver.Chrome()
+
+def test_demoblaze_homepage():
+    try:
+        # Open the DemoBlaze website
+        driver.get("https://www.demoblaze.com/")
+        
+        # Wait for the page to load
+        time.sleep(3)  # This should be replaced with explicit waits
+        
+        # Verify the title of the page
+        assert "STORE" in driver.title, "Title does not match"
+        print("Test Passed: Homepage loaded successfully")
+    
+    except Exception as e:
+        print(f"Test Failed: {e}")
+    
+    finally:
+        # Close the browser
+        driver.quit()
+
+# Run the test
+test_demoblaze_homepage()
